@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        padding: 40px;
+      }
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .high {
+        color: red;
+        font-weight: bold;
+      }
+      .low {
+        color: green;
+        font-weight: bold;
+      }
+      a {
+        display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #f7f7f8;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      button {
+        margin-top: 15px;
+        top: -20px;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 0.5;
+        border-radius: 5px;
+      }
+      .note {
+        font-size: 12px;
+        color: #666;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>{{ user_name }}'s Prediction Result</h2>
+
+      {% if prediction == "High Risk" %}
+      <p class="high">Heart Disease Risk: {{ prediction }}</p>
+      {% else %}
+      <p class="low">Heart Disease Risk: {{ prediction }}</p>
+      {% endif %} {% if probability is not none %}
+      <p>Estimated Heart Disease Risk: <b>{{ probability }}%</b></p>
+      {% endif %}
+
+      <p class="note">
+        This result is generated using a machine learning model and is intended
+        for educational and risk assessment purposes only. It is not a medical
+        diagnosis.
+      </p>
+
+      <button><a href="/predict">Check Another Prediction 📈</a></button>
+      <br />
+      <button><a href="/">Back to Home 🏡</a></button>
+    </div>
+  </body>
+</html>
