@@ -55,9 +55,9 @@ def predict():
         result = "High Risk" if prediction == 0 else "Low Risk"
 
         if result == "Low Risk" and probability <= 80:
-            probability = 15  
+            probability = -round((probability - 100), 2)  
         elif result == "High Risk" and probability >= 20:
-            probability = 85  
+            probability = probability
 
         # Render result page
         return render_template(
