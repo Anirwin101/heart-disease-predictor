@@ -14,7 +14,21 @@
         line-height: 1.6;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f9;
+        background: linear-gradient(90deg, #ff6b6b, #ff9999);
+        background-size: 200% 200%;
+        animation: gradientAnimation 5s ease infinite;
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
       }
       .container {
         max-width: 800px;
