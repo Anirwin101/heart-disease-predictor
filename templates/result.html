@@ -29,9 +29,9 @@
       }
       .container {
         max-width: 500px;
-        margin: auto;
+        margin: 20px auto;
         background: white;
-        padding: 25px;
+        padding: 20px;
         border-radius: 8px;
         text-align: center;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -78,9 +78,9 @@
       <h2>{{ user_name }}'s Prediction Result</h2>
 
       {% if prediction == "High Risk" %}
-      <p class="high">Heart Disease Risk: {{ prediction }}</p>
+      <p class="high">Heart Disease: {{ prediction }}</p>
       {% else %}
-      <p class="low">Heart Disease Risk: {{ prediction }}</p>
+      <p class="low">Heart Disease: {{ prediction }}</p>
       {% endif %} {% if probability is not none %}
       <p>Disease Risk: <b>{{ probability }}%</b></p>
       {% endif %}
