@@ -59,6 +59,8 @@ def predict():
         elif result == "High Risk" and probability >= 20:
             probability = probability
 
+
+
         # Render result page
         return render_template(
             "result.html",
