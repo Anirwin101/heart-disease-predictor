@@ -44,6 +44,10 @@
         color: green;
         font-weight: bold;
       }
+      .moderate {
+        color: rgb(255, 94, 0);
+        font-weight: bold;
+      }
       a {
         display: inline-block;
         margin-top: 10px;
@@ -79,6 +83,8 @@
 
       {% if prediction == "High Risk" %}
       <p class="high">Heart Disease: {{ prediction }}</p>
+      {% elif prediction == "Moderate Risk" %}
+      <p class="moderate">Heart Disease: {{ prediction }}</p>
       {% else %}
       <p class="low">Heart Disease: {{ prediction }}</p>
       {% endif %} {% if probability is not none %}
@@ -86,11 +92,9 @@
       {% endif %}
 
       <p class="note">
-        Anything under <strong><b>40%</b></strong> or within
-        <strong><b>40% - 50%</b></strong> is considered a low risk for the
-        disease and nothing to worry about. This result is generated using a
-        machine learning model and is intended for educational and risk
-        assessment purposes only. *It is not a medical diagnosis.*
+        This result is generated using a machine learning model and is intended
+        for educational and risk assessment purposes only. *It is not a medical
+        diagnosis.*
       </p>
       <button><a href="/predict">Check Another Prediction 📈</a></button>
       <br />

@@ -29,7 +29,7 @@ def predict():
 
     try:
         input_data = []
-        user_name = request.form.get('name', 'User')
+        user_name = request.form.get('name', 'User').capitalize()
 
         # Collect and type-cast input
         for feature in FEATURES:
@@ -55,6 +55,13 @@ def predict():
 
         # Final result label
         result = "High Risk" if prediction == 0 else "Low Risk"
+
+        if probability < 20:
+            result = "Low Risk"
+        elif probability < 50:
+            result = "Moderate Risk"
+        else:
+            result = "High Risk"
 
         return render_template(
             "result.html",
