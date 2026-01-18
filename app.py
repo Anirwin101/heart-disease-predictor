@@ -56,7 +56,7 @@ def predict():
         # Final result label
         result = "High Risk" if prediction == 0 else "Low Risk"
 
-        if probability < 20:
+        if probability < 30:
             result = "Low Risk"
         elif probability < 50:
             result = "Moderate Risk"
