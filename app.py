@@ -31,6 +31,8 @@ def predict():
     try:
         input_data = []
         user_name = request.form.get('name', 'User').capitalize()
+        if not user_name or user_name == "User":
+            user_name = "User"
 
         # Collect and type-cast input
         for feature in FEATURES:
