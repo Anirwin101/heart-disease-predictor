@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta
+      name="google-site-verification"
+      content="GKZnNhXqVFzbyTPmn__0ROMRvJbEilxVg88_hZUP_wg"
+    />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+
+    <title>Heart Insight</title>
+    <style>
+      body {
+        font-family: "Georgia";
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(90deg, rgb(219, 67, 67));
+        background-size: 200% 200%;
+        animation: gradientAnimation 5s ease infinite;
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      }
+      header {
+        background: #fcfcfc;
+        color: rgb(219, 67, 67);
+        padding: 10px;
+        text-align: center;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+      .card {
+        background: white;
+        padding: 25px;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        font-family: Georgia;
+        font-size: large;
+      }
+      h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 45px;
+      }
+      p {
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 15px auto;
+        color: black;
+      }
+
+      .center-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: #007bff;
+        font-weight: bold;
+        border-radius: 5px;
+        display: block;
+        margin: 20px auto;
+        width: 200px;
+        padding: 15px 30px;
+        font-size: 16px;
+      }
+      .center-btn a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .center-btn:hover {
+        background: #0056b3;
+        text-decoration: none;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #555;
+      }
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .image-container img {
+        max-width: 300px;
+        border-radius: 24px;
+        border: #070707;
+      }
+
+      .section-divider {
+        border: none;
+        border-top: 2px solid #ccc;
+        margin: 30px 0;
+      }
+
+      table th,
+      table td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Heart Insight</h1>
+    </header>
+
+    <main>
+      <div class="card">
+        <p>
+          Understanding your health numbers is an important step toward
+          protecting your heart. This page explains the common clinical and
+          physiological parameters used in Heart Insight, along with typical
+          healthy reference ranges. These values help you interpret what each
+          measurement generally represents in cardiovascular health.
+        </p>
+        <p>
+          The information provided here is intended for education and awareness
+          purposes only. Individual health conditions vary, and these ranges
+          should not be treated as a diagnosis. If any of your values fall
+          outside typical ranges or you experience concerning symptoms,
+          consulting a qualified medical professional is strongly recommended.
+        </p>
+        <hr />
+        <p>
+          Chest Pain Type (0–3): Chest pain is a symptom, not something to
+          "reduce." However, preventing underlying causes like blocked arteries
+          can help avoid dangerous chest pain. This means managing cholesterol,
+          blood pressure, weight, stress, and avoiding smoking.
+        </p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Meaning</th>
+            <th style="padding: 12px; text-align: left">
+              Typical Risk Insight
+            </th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0</td>
+            <td style="padding: 12px">
+              <strong>Typical Angina</strong>
+            </td>
+            <td style="padding: 12px">
+              <strong>Higher concern</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">1</td>
+            <td style="padding: 12px">
+              <strong>Atypical Angina</strong>
+            </td>
+            <td style="padding: 12px">
+              <strong>Moderate concern</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">2</td>
+            <td style="padding: 12px">
+              <strong>Non-anginal Pain</strong>
+            </td>
+            <td style="padding: 12px">
+              <strong>Lower concern</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">3</td>
+            <td style="padding: 12px">
+              <strong>Asymptomatic</strong>
+            </td>
+            <td style="padding: 12px">
+              <strong>Can still be risky</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Resting Blood Pressure (mm Hg): High blood pressure strains the heart
+          and damages arteries. Risk can be reduced by limiting excess salt,
+          exercising regularly, maintaining a healthy weight, sleeping well,
+          managing stress, and avoiding smoking or excessive junk food.
+        </p>
+        <p>Healthy target: ~ 110–120 mm Hg</p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Category</th>
+            <th style="padding: 12px; text-align: left">Systolic (mm Hg)</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Normal</strong>
+            </td>
+            <td style="padding: 12px">&lt; 120</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Elevated</strong>
+            </td>
+            <td style="padding: 12px">120–129</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>High (Stage 1)</strong>
+            </td>
+            <td style="padding: 12px">130–139</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>High (Stage 2)</strong>
+            </td>
+            <td style="padding: 12px">≥ 140</td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Serum Cholesterol (mg/dl): Elevated cholesterol contributes to artery
+          blockage. Lowering risk involves reducing trans fats and excessive
+          saturated fats, increasing fiber intake, staying physically active,
+          and choosing healthier fats (nuts, seeds, olive oil).
+        </p>
+        <p>Healthy target: 150–200 mg/dl</p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Category</th>
+            <th style="padding: 12px; text-align: left">
+              Total Cholesterol (mg/dl)
+            </th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Desirable</strong>
+            </td>
+            <td style="padding: 12px">&lt; 200</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Borderline High</strong>
+            </td>
+            <td style="padding: 12px">200–239</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>High</strong>
+            </td>
+            <td style="padding: 12px">≥ 240</td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Fasting Blood Sugar > 120 mg/dl: High blood sugar can damage blood
+          vessels over time. Keeping levels healthy involves reducing excessive
+          sugar intake, staying active, maintaining a healthy weight, and
+          following a balanced diet with controlled carbohydrates.
+        </p>
+        <p>Healthy target: 70 - 99 mg/dl</p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Category</th>
+            <th style="padding: 12px; text-align: left">
+              Fasting Glucose (mg/dl)
+            </th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Normal</strong>
+            </td>
+            <td style="padding: 12px">&lt; 100</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Prediabetes</strong>
+            </td>
+            <td style="padding: 12px">100–125</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">
+              <strong>Diabetes Range</strong>
+            </td>
+            <td style="padding: 12px">≥ 126</td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Resting ECG Results (0–2): ECG findings reflect heart electrical
+          activity and cannot be directly "reduced." The focus should be on
+          preventing heart damage through blood pressure control, cholesterol
+          management, exercise, and early medical evaluation if abnormalities
+          appear.
+        </p>
+        <p>Healthy: 0 (Normal ECG)</p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Meaning</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0</td>
+            <td style="padding: 12px">
+              <strong>Normal ECG</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">1</td>
+            <td style="padding: 12px">
+              <strong>ST-T wave abnormality</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">2</td>
+            <td style="padding: 12px">
+              <strong>Possible ventricular hypertrophy</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Maximum Heart Rate Achieved: A low exercise capacity may indicate poor
+          cardiovascular fitness. Improving heart health involves regular
+          aerobic exercise like walking, cycling, sports, or swimming —
+          gradually increasing stamina strengthens the heart.
+        </p>
+        <p>General formula: Estimated Max HR = 220 – Age</p>
+        <p>Example: Age 15 → ~205, bpm Age 40 → ~180 bpm</p>
+        <p>
+          ✅ Healthy sign: Higher achievable HR during exercise (good fitness)
+        </p>
+        <p>⚠️ Very low values may suggest reduced exercise capacity</p>
+        <hr class="section-divider" />
+
+        <p>
+          Exercise Induced Angina: This is a warning sign of reduced blood flow
+          to the heart. Prevention strategies include improving fitness,
+          managing cholesterol, controlling blood pressure, reducing stress, and
+          avoiding smoking.
+        </p>
+        <p>Healthy: No exercise induced angina</p>
+        <hr class="section-divider" />
+
+        <p>
+          ST Depression (Oldpeak): ST depression suggests stress-related heart
+          strain. While the value itself isn't "reduced" by lifestyle alone,
+          improving cardiovascular health through exercise, weight control, and
+          risk-factor management can improve heart function over time.
+        </p>
+        <p>Healthy: 0 (Normal)</p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Interpretation</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0</td>
+            <td style="padding: 12px">
+              <strong>Ideal / Normal</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0.1 – 1.0</td>
+            <td style="padding: 12px">
+              <strong>Mild</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">&gt; 1.0</td>
+            <td style="padding: 12px">
+              <strong>Increasing concern</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Slope of Peak Exercise ST Segment (0–2): This reflects ECG response to
+          exercise and is not directly modifiable. Long-term heart health
+          improvements via fitness, diet, and medical management may positively
+          influence such parameters.
+        </p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Meaning</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0</td>
+            <td style="padding: 12px">
+              <strong>Downsloping</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">1</td>
+            <td style="padding: 12px">
+              <strong>Flat</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">2</td>
+            <td style="padding: 12px">
+              <strong>Upsloping</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Number of Major Vessels (0–4): This represents arterial blockage — not
+          something users can adjust themselves. Preventive care is crucial:
+          healthy diet, exercise, cholesterol control, and avoiding smoking
+          reduce progression of vessel disease.
+        </p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Meaning</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">0</td>
+            <td style="padding: 12px">
+              <strong>No visible blockage</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">1–4</td>
+            <td style="padding: 12px">
+              <strong>Increasing vessel involvement</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+
+        <p>
+          Type of Thalassemia (1–3): This is genetic and cannot be changed.
+          Individuals with inherited conditions benefit from regular medical
+          monitoring and maintaining optimal cardiovascular health through
+          lifestyle management.
+        </p>
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Georgia;
+          "
+        >
+          <tr style="background-color: #f0f0f0">
+            <th style="padding: 12px; text-align: left">Value</th>
+            <th style="padding: 12px; text-align: left">Meaning</th>
+          </tr>
+          <tr>
+            <td style="padding: 12px">1</td>
+            <td style="padding: 12px">
+              <strong>Normal</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">2</td>
+            <td style="padding: 12px">
+              <strong>Fixed defect</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 12px">3</td>
+            <td style="padding: 12px">
+              <strong>Reversible defect</strong>
+            </td>
+          </tr>
+        </table>
+        <hr class="section-divider" />
+        <button class="center-btn">
+          <a href="/predict">Proceed to Prediction</a>
+        </button>
+        <button class="center-btn"><a href="/">Back to Home</a></button>
+      </div>
+    </main>
+
+    <footer>
+      <p style="margin-bottom: 5px; margin-top: -25px">
+        For educational and research purposes only. This is not a medical
+        diagnosis.
+      </p>
+      <p style="margin-top: 5px">
+        Developed by <a href="/contact">Anirwin Renikunta</a> | Student Research
+        Project | Machine Learning in Healthcare
+      </p>
+    </footer>
+  </body>
+</html>

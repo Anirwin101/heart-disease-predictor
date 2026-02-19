@@ -23,6 +23,10 @@ def homepage():
 def contact():
     return render_template('contact.html')
 
+@app.route('/measures')
+def measures():
+    return render_template('measures.html')
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'GET':
