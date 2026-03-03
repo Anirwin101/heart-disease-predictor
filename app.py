@@ -6,7 +6,7 @@ import pickle
 app = Flask(__name__)
 
 # Load trained ML model
-model = pickle.load(open("heart-model.pkl", "rb"))
+model = pickle.load(open("heart-model-updated.pkl", "rb"))
 
 # Feature order MUST match training
 FEATURES = [
@@ -69,6 +69,8 @@ def predict():
             result = "Moderate Risk"
         else:
             result = "High Risk"
+
+        print("Slope received:", request.form['slope'])
 
         return render_template(
             "result.html",
